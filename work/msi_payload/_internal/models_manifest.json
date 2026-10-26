@@ -1,0 +1,110 @@
+{
+  "privacy": {
+    "revision": "7ffa9a043d54d1be65afb281eddf0ffbe629385b",
+    "files": [
+      {
+        "name": "config.json",
+        "url": "https://huggingface.co/openai/privacy-filter/resolve/7ffa9a043d54d1be65afb281eddf0ffbe629385b/original/config.json",
+        "size": 707,
+        "sha256": null,
+        "git_sha1": "436203f9c7604371411cb5e04e5c957130b9715e"
+      },
+      {
+        "name": "dtypes.json",
+        "url": "https://huggingface.co/openai/privacy-filter/resolve/7ffa9a043d54d1be65afb281eddf0ffbe629385b/original/dtypes.json",
+        "size": 4108,
+        "sha256": null,
+        "git_sha1": "9cc6062dc02a7ac4e9495288e031d7ecd9177667"
+      },
+      {
+        "name": "model.safetensors",
+        "url": "https://huggingface.co/openai/privacy-filter/resolve/7ffa9a043d54d1be65afb281eddf0ffbe629385b/original/model.safetensors",
+        "size": 2798984088,
+        "sha256": "9c262cbe68a0c8a50590a648ef8341a2b7d3be1fa11dfb79893fe0b03ce57b5c",
+        "git_sha1": "ad17d449b337de7860187002d10a5c1aba1ebf3c"
+      },
+      {
+        "name": "viterbi_calibration.json",
+        "url": "https://huggingface.co/openai/privacy-filter/resolve/7ffa9a043d54d1be65afb281eddf0ffbe629385b/original/viterbi_calibration.json",
+        "size": 372,
+        "sha256": null,
+        "git_sha1": "fc87af869a7e4d8b0ab9754e0a38304a6aee53e7"
+      }
+    ]
+  },
+  "unlimited": {
+    "revision": "8249d20b2822a7d8a4c22c8d8c9069b5ac36bda3",
+    "files": [
+      {
+        "name": "LICENSE",
+        "url": "https://huggingface.co/baidu/Unlimited-OCR/resolve/8249d20b2822a7d8a4c22c8d8c9069b5ac36bda3/LICENSE",
+        "size": 1061,
+        "sha256": null,
+        "git_sha1": "890d455ae73d1d930eee703ce1e5478783ec9154"
+      },
+      {
+        "name": "chat_template.jinja",
+        "url": "https://huggingface.co/baidu/Unlimited-OCR/resolve/8249d20b2822a7d8a4c22c8d8c9069b5ac36bda3/chat_template.jinja",
+        "size": 529,
+        "sha256": null,
+        "git_sha1": "3a9f5919ec2bd5cd517befd1c58de67ca204d3a7"
+      },
+      {
+        "name": "config.json",
+        "url": "https://huggingface.co/baidu/Unlimited-OCR/resolve/8249d20b2822a7d8a4c22c8d8c9069b5ac36bda3/config.json",
+        "size": 2881,
+        "sha256": null,
+        "git_sha1": "412a934a31556c28a1f4731a3f6e733826ea24e6"
+      },
+      {
+        "name": "generation_config.json",
+        "url": "https://huggingface.co/baidu/Unlimited-OCR/resolve/8249d20b2822a7d8a4c22c8d8c9069b5ac36bda3/generation_config.json",
+        "size": 202,
+        "sha256": null,
+        "git_sha1": "3236e9b6b072280d9d5f90599ccd5d26e8f9691f"
+      },
+      {
+        "name": "model.safetensors",
+        "url": "https://huggingface.co/baidu/Unlimited-OCR/resolve/8249d20b2822a7d8a4c22c8d8c9069b5ac36bda3/model.safetensors",
+        "size": 6672547120,
+        "sha256": "2bc48a7a110061ea58fff65d3169367eebe3aee371ca6968dc2219c1b2855fc6",
+        "git_sha1": "2e629fa069397ca38770f289f36f80af207401ba"
+      },
+      {
+        "name": "preprocessor_config.json",
+        "url": "https://huggingface.co/baidu/Unlimited-OCR/resolve/8249d20b2822a7d8a4c22c8d8c9069b5ac36bda3/preprocessor_config.json",
+        "size": 457,
+        "sha256": null,
+        "git_sha1": "a699f13c50d79ec59ea9bf6ade351661ed1b8d8a"
+      },
+      {
+        "name": "processor_config.json",
+        "url": "https://huggingface.co/baidu/Unlimited-OCR/resolve/8249d20b2822a7d8a4c22c8d8c9069b5ac36bda3/processor_config.json",
+        "size": 452,
+        "sha256": null,
+        "git_sha1": "d43392a3a30215cea81f106e759f2342810554c6"
+      },
+      {
+        "name": "special_tokens_map.json",
+        "url": "https://huggingface.co/baidu/Unlimited-OCR/resolve/8249d20b2822a7d8a4c22c8d8c9069b5ac36bda3/special_tokens_map.json",
+        "size": 801,
+        "sha256": null,
+        "git_sha1": "d59d312be868edc63b195e19e256c730dba685ad"
+      },
+      {
+        "name": "tokenizer.json",
+        "url": "https://huggingface.co/baidu/Unlimited-OCR/resolve/8249d20b2822a7d8a4c22c8d8c9069b5ac36bda3/tokenizer.json",
+        "size": 9979544,
+        "sha256": null,
+        "git_sha1": "c93a1c4d2ecf31bb5a9ec39eb73dfbf915aaf77e"
+      },
+      {
+        "name": "tokenizer_config.json",
+        "url": "https://huggingface.co/baidu/Unlimited-OCR/resolve/8249d20b2822a7d8a4c22c8d8c9069b5ac36bda3/tokenizer_config.json",
+        "size": 165938,
+        "sha256": null,
+        "git_sha1": "ba9d4175d69cde58ad9f68a76a4758df091eaffa"
+      }
+    ]
+  }
+}

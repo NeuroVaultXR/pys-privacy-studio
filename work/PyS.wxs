@@ -1,0 +1,393 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+  <Package Name="PyS - Privacy Studio" Manufacturer="Salvatore Urbano" Version="1.5.1" UpgradeCode="63CC2D90-6604-4EA5-B860-CE2FE5E62041" Scope="perUser" Language="1040" InstallerVersion="500">
+    <MajorUpgrade DowngradeErrorMessage="Una versione piu recente e gia installata." />
+    <MediaTemplate EmbedCab="yes" />
+    <ui:WixUI Id="WixUI_InstallDir" InstallDirectory="INSTALLFOLDER" />
+    <WixVariable Id="WixUILicenseRtf" Value="work/PyS_Notice.rtf" />
+    <Icon Id="AppIcon" SourceFile="work/msi_payload/app/assets/pys-ivory.ico" />
+    <Property Id="ARPPRODUCTICON" Value="AppIcon" />
+    <Property Id="PYTHONDIR" Secure="yes">
+      <RegistrySearch Id="Py313HKCU" Root="HKCU" Key="Software\Python\PythonCore\3.13\InstallPath" Type="directory" Bitness="always64" />
+      <RegistrySearch Id="Py313HKLM" Root="HKLM" Key="Software\Python\PythonCore\3.13\InstallPath" Type="directory" Bitness="always64" />
+    </Property>
+    <Launch Condition="Installed OR PYTHONDIR" Message="Installa prima Python 3.13 a 64 bit da python.org (opzioni pip e Tcl/Tk). Poi riapri questo MSI." />
+    <StandardDirectory Id="LocalAppDataFolder">
+      <Directory Id="NVPrograms" Name="Programs">
+        <Directory Id="INSTALLFOLDER" Name="PyS - Privacy Studio">
+          <Directory Id="D270c6a176767cd6de3fb4e" Name="_internal">
+            <Component Id="C06a66e6b75f1c556a95fdd" Guid="ad9e2758-1c91-5c71-8c12-eeb137236a30">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K06a66e6b75f1c556a95fdd" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="F06a66e6b75f1c556a95fdd" Source="work\msi_payload\_internal\configure.pyw" Name="configure.pyw" />
+            </Component>
+            <Component Id="Cf62c9f566a9589a365601d" Guid="c0ee4714-d6a0-58ad-a3d0-63eb1d8d99e6">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kf62c9f566a9589a365601d" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="Ff62c9f566a9589a365601d" Source="work\msi_payload\_internal\download_models.py" Name="download_models.py" />
+            </Component>
+            <Component Id="C55f9c51ffc69570d17e09b" Guid="7dbe1320-2edf-5bb8-8d31-5296288451e4">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K55f9c51ffc69570d17e09b" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="F55f9c51ffc69570d17e09b" Source="work\msi_payload\_internal\launch.pyw" Name="launch.pyw" />
+            </Component>
+            <Directory Id="D1b3aeb35f7eb044a1d3402" Name="licenses">
+              <Component Id="Cf5343cc2054a10e4f8d636" Guid="76984280-d6c5-535c-9775-eb62496968fa">
+                <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kf5343cc2054a10e4f8d636" Type="integer" Value="1" KeyPath="yes" />
+                <File Id="Ff5343cc2054a10e4f8d636" Source="work\msi_payload\_internal\licenses\OpenAI-Privacy-Filter.txt" Name="OpenAI-Privacy-Filter.txt" />
+              </Component>
+              <Component Id="C0e0135d6d1b5f21a2d107e" Guid="40a690ae-2b9b-5535-b739-a48968fea7b7">
+                <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K0e0135d6d1b5f21a2d107e" Type="integer" Value="1" KeyPath="yes" />
+                <File Id="F0e0135d6d1b5f21a2d107e" Source="work\msi_payload\_internal\licenses\Unlimited-OCR.txt" Name="Unlimited-OCR.txt" />
+              </Component>
+            </Directory>
+            <Directory Id="Ddbe25f4f4845752038e76a" Name="model_code">
+              <Component Id="Cbb169568c27327e4ad4257" Guid="27ec3139-58f0-573e-a57a-1b2bf2f4e8d0">
+                <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kbb169568c27327e4ad4257" Type="integer" Value="1" KeyPath="yes" />
+                <File Id="Fbb169568c27327e4ad4257" Source="work\msi_payload\_internal\model_code\configuration_deepseek_v2.py" Name="configuration_deepseek_v2.py" />
+              </Component>
+              <Component Id="Cc189fad6b8986a412b7e81" Guid="98e3c17e-747d-5d01-a35c-3de0b3bcd984">
+                <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kc189fad6b8986a412b7e81" Type="integer" Value="1" KeyPath="yes" />
+                <File Id="Fc189fad6b8986a412b7e81" Source="work\msi_payload\_internal\model_code\conversation.py" Name="conversation.py" />
+              </Component>
+              <Component Id="C03352bb8b2d0cfbdaadce0" Guid="a2d5469b-0607-56bf-8ff0-b0c5c4dc3a66">
+                <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K03352bb8b2d0cfbdaadce0" Type="integer" Value="1" KeyPath="yes" />
+                <File Id="F03352bb8b2d0cfbdaadce0" Source="work\msi_payload\_internal\model_code\cpu_patch.json" Name="cpu_patch.json" />
+              </Component>
+              <Component Id="Ccee7d06b30171114cf2649" Guid="c1b3fc51-fd02-52c1-a887-b705c27abde4">
+                <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kcee7d06b30171114cf2649" Type="integer" Value="1" KeyPath="yes" />
+                <File Id="Fcee7d06b30171114cf2649" Source="work\msi_payload\_internal\model_code\deepencoder.py" Name="deepencoder.py" />
+              </Component>
+              <Component Id="Cf302c9b5d70cc5113062b5" Guid="bb60ecd5-4add-5c8c-8151-b856ea5dde3a">
+                <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kf302c9b5d70cc5113062b5" Type="integer" Value="1" KeyPath="yes" />
+                <File Id="Ff302c9b5d70cc5113062b5" Source="work\msi_payload\_internal\model_code\modeling_deepseekv2.py" Name="modeling_deepseekv2.py" />
+              </Component>
+              <Component Id="C52238681e5af1a4965df91" Guid="947619b0-8e10-5d8c-8cdd-3f79e390c2dc">
+                <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K52238681e5af1a4965df91" Type="integer" Value="1" KeyPath="yes" />
+                <File Id="F52238681e5af1a4965df91" Source="work\msi_payload\_internal\model_code\modeling_unlimitedocr.py" Name="modeling_unlimitedocr.py" />
+              </Component>
+            </Directory>
+            <Component Id="C3b250be3ec77049a68f7f5" Guid="5e223ca1-6894-510f-94c4-d3a2c6fbd747">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K3b250be3ec77049a68f7f5" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="F3b250be3ec77049a68f7f5" Source="work\msi_payload\_internal\models_manifest.json" Name="models_manifest.json" />
+            </Component>
+            <Directory Id="D5b5d0e901b2522dc90d24d" Name="opf_source">
+              <Component Id="C81565c96c8a278c6864bd0" Guid="0673f4aa-7b02-5160-848a-b509bfedb0ee">
+                <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K81565c96c8a278c6864bd0" Type="integer" Value="1" KeyPath="yes" />
+                <File Id="F81565c96c8a278c6864bd0" Source="work\msi_payload\_internal\opf_source\LICENSE" Name="LICENSE" />
+              </Component>
+              <Directory Id="D0a7d8c00b8b7cbfaefb3cc" Name="opf">
+                <Component Id="C8b43cde877cd0581c4513c" Guid="c367b307-b3ef-52c5-9749-6c5a1ea84afe">
+                  <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K8b43cde877cd0581c4513c" Type="integer" Value="1" KeyPath="yes" />
+                  <File Id="F8b43cde877cd0581c4513c" Source="work\msi_payload\_internal\opf_source\opf\__init__.py" Name="__init__.py" />
+                </Component>
+                <Component Id="Cf905b78dd4756573fa131d" Guid="77ceb54d-0f50-5dca-be6c-3a18833b11f5">
+                  <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kf905b78dd4756573fa131d" Type="integer" Value="1" KeyPath="yes" />
+                  <File Id="Ff905b78dd4756573fa131d" Source="work\msi_payload\_internal\opf_source\opf\__main__.py" Name="__main__.py" />
+                </Component>
+                <Component Id="C85f2b214a1b51456bdee9d" Guid="607726b9-ef37-5dec-a210-69237416b42a">
+                  <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K85f2b214a1b51456bdee9d" Type="integer" Value="1" KeyPath="yes" />
+                  <File Id="F85f2b214a1b51456bdee9d" Source="work\msi_payload\_internal\opf_source\opf\_api.py" Name="_api.py" />
+                </Component>
+                <Directory Id="D69aa935d8612c844fd368d" Name="_cli">
+                  <Component Id="C8f3a8eff757a6b4fc77b52" Guid="299e4d06-a830-5802-9736-d6709d22f16f">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K8f3a8eff757a6b4fc77b52" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="F8f3a8eff757a6b4fc77b52" Source="work\msi_payload\_internal\opf_source\opf\_cli\__init__.py" Name="__init__.py" />
+                  </Component>
+                  <Component Id="C5bcd6a6a4724efc09202b0" Guid="c7ff0d8b-d10f-5e82-8d0e-fc13e96e0064">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K5bcd6a6a4724efc09202b0" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="F5bcd6a6a4724efc09202b0" Source="work\msi_payload\_internal\opf_source\opf\_cli\args.py" Name="args.py" />
+                  </Component>
+                  <Component Id="Cbf3b5c339ef3645009984e" Guid="0edba01f-7cdf-5ba4-93c8-9e0db3cd30db">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kbf3b5c339ef3645009984e" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="Fbf3b5c339ef3645009984e" Source="work\msi_payload\_internal\opf_source\opf\_cli\common.py" Name="common.py" />
+                  </Component>
+                  <Component Id="Cf2ae504d868ec4f149a081" Guid="1e4b1fdb-e73c-54b0-8103-893c64106da8">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kf2ae504d868ec4f149a081" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="Ff2ae504d868ec4f149a081" Source="work\msi_payload\_internal\opf_source\opf\_cli\render.py" Name="render.py" />
+                  </Component>
+                </Directory>
+                <Directory Id="Dd3476242597eb241d22ad8" Name="_common">
+                  <Component Id="C37502d4aa8876a84094215" Guid="e8bfc8b1-1bae-5358-a4d9-4778fedf64af">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K37502d4aa8876a84094215" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="F37502d4aa8876a84094215" Source="work\msi_payload\_internal\opf_source\opf\_common\__init__.py" Name="__init__.py" />
+                  </Component>
+                  <Component Id="C6f3c4e673e37fe645191a5" Guid="33b5c9b3-3bd0-54f8-a309-12ca9b3da060">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K6f3c4e673e37fe645191a5" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="F6f3c4e673e37fe645191a5" Source="work\msi_payload\_internal\opf_source\opf\_common\checkpoint_download.py" Name="checkpoint_download.py" />
+                  </Component>
+                  <Component Id="Cd37b3f2a59e1323c98b5c4" Guid="ecd0784a-401b-5b2f-a923-bcf5917fe479">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kd37b3f2a59e1323c98b5c4" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="Fd37b3f2a59e1323c98b5c4" Source="work\msi_payload\_internal\opf_source\opf\_common\constants.py" Name="constants.py" />
+                  </Component>
+                  <Component Id="Cab4f8efb3ef7bc51f61d51" Guid="5248bbf5-9f68-5804-ade1-98e96f149e4f">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kab4f8efb3ef7bc51f61d51" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="Fab4f8efb3ef7bc51f61d51" Source="work\msi_payload\_internal\opf_source\opf\_common\env.py" Name="env.py" />
+                  </Component>
+                  <Component Id="C1b9bb0d7dc437a93138b38" Guid="c8dee9bd-1824-5ad2-bafc-a4d2b42c8cdb">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K1b9bb0d7dc437a93138b38" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="F1b9bb0d7dc437a93138b38" Source="work\msi_payload\_internal\opf_source\opf\_common\label_space.py" Name="label_space.py" />
+                  </Component>
+                  <Component Id="Cd9b585e2662484ecc10c10" Guid="669dcef7-88e1-544b-8560-4452159a9df5">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kd9b585e2662484ecc10c10" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="Fd9b585e2662484ecc10c10" Source="work\msi_payload\_internal\opf_source\opf\_common\terminal_colors.py" Name="terminal_colors.py" />
+                  </Component>
+                </Directory>
+                <Directory Id="D1f287d4330c99961f9663b" Name="_core">
+                  <Component Id="Cb5970dac74ebb57516baab" Guid="db402408-b1bd-57b4-a780-55e90a228ea8">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kb5970dac74ebb57516baab" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="Fb5970dac74ebb57516baab" Source="work\msi_payload\_internal\opf_source\opf\_core\__init__.py" Name="__init__.py" />
+                  </Component>
+                  <Component Id="Cec177518417d668e049d47" Guid="8e787f0d-06c4-5598-b025-150c7ca7d2e6">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kec177518417d668e049d47" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="Fec177518417d668e049d47" Source="work\msi_payload\_internal\opf_source\opf\_core\decoding.py" Name="decoding.py" />
+                  </Component>
+                  <Component Id="Cfea153e63492f2585ab5e6" Guid="76b7b2c5-f9c6-5f6d-ae67-92ca176c60a0">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kfea153e63492f2585ab5e6" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="Ffea153e63492f2585ab5e6" Source="work\msi_payload\_internal\opf_source\opf\_core\runtime.py" Name="runtime.py" />
+                  </Component>
+                  <Component Id="Caf31cc958ed5c742ab87b2" Guid="d6581503-2acc-5e4d-b62a-2296dc0a97cb">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kaf31cc958ed5c742ab87b2" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="Faf31cc958ed5c742ab87b2" Source="work\msi_payload\_internal\opf_source\opf\_core\sequence_labeling.py" Name="sequence_labeling.py" />
+                  </Component>
+                  <Component Id="Cec28ed7b69a1884ffe0524" Guid="a8fa5b9e-84f5-5fd6-8437-0637af097a92">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kec28ed7b69a1884ffe0524" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="Fec28ed7b69a1884ffe0524" Source="work\msi_payload\_internal\opf_source\opf\_core\spans.py" Name="spans.py" />
+                  </Component>
+                </Directory>
+                <Directory Id="D66480c2534eb7eac81c61b" Name="_eval">
+                  <Component Id="C1f01c2447c06bd95c8df5e" Guid="ddeddf01-e950-56e8-8993-d1e6f403de22">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K1f01c2447c06bd95c8df5e" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="F1f01c2447c06bd95c8df5e" Source="work\msi_payload\_internal\opf_source\opf\_eval\__init__.py" Name="__init__.py" />
+                  </Component>
+                  <Component Id="Ce614cfb96ed20195ce721d" Guid="196e9c5d-b61f-52d3-adf6-4ce2e839c2ac">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Ke614cfb96ed20195ce721d" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="Fe614cfb96ed20195ce721d" Source="work\msi_payload\_internal\opf_source\opf\_eval\args.py" Name="args.py" />
+                  </Component>
+                  <Component Id="Ce336921d32254b9d4d3e65" Guid="6a87cc7d-743c-5012-86d9-10c27aee0104">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Ke336921d32254b9d4d3e65" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="Fe336921d32254b9d4d3e65" Source="work\msi_payload\_internal\opf_source\opf\_eval\data.py" Name="data.py" />
+                  </Component>
+                  <Component Id="Cd67ee5e9714a63af2b66db" Guid="0226791d-3549-58c6-8e8e-c6178a1615f7">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kd67ee5e9714a63af2b66db" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="Fd67ee5e9714a63af2b66db" Source="work\msi_payload\_internal\opf_source\opf\_eval\metrics.py" Name="metrics.py" />
+                  </Component>
+                  <Component Id="Cb736655f379cacc075c266" Guid="6b3a7f9b-ff06-5bdc-a3eb-5a666809cecf">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kb736655f379cacc075c266" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="Fb736655f379cacc075c266" Source="work\msi_payload\_internal\opf_source\opf\_eval\preprocess.py" Name="preprocess.py" />
+                  </Component>
+                  <Component Id="C85bd1a8a0ce4ec6004e1af" Guid="63b5c177-3ade-5b97-abfd-d9cf269804b8">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K85bd1a8a0ce4ec6004e1af" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="F85bd1a8a0ce4ec6004e1af" Source="work\msi_payload\_internal\opf_source\opf\_eval\render.py" Name="render.py" />
+                  </Component>
+                  <Component Id="Cb18f5493b52b410d322e8d" Guid="1f8471c0-3baa-53da-8b8b-a06c94b19275">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kb18f5493b52b410d322e8d" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="Fb18f5493b52b410d322e8d" Source="work\msi_payload\_internal\opf_source\opf\_eval\runner.py" Name="runner.py" />
+                  </Component>
+                </Directory>
+                <Directory Id="D0e9a827b9fb59baffcc75b" Name="_model">
+                  <Component Id="C337bb15eb5a90ad67fc546" Guid="904cec18-cc9b-595e-a344-f22e4a925ea0">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K337bb15eb5a90ad67fc546" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="F337bb15eb5a90ad67fc546" Source="work\msi_payload\_internal\opf_source\opf\_model\__init__.py" Name="__init__.py" />
+                  </Component>
+                  <Component Id="C6883aa86109c7c8377807b" Guid="892d68d4-6668-5a69-892d-b8f1d88ad141">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K6883aa86109c7c8377807b" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="F6883aa86109c7c8377807b" Source="work\msi_payload\_internal\opf_source\opf\_model\model.py" Name="model.py" />
+                  </Component>
+                  <Component Id="Cd14d4aca36158fa705487c" Guid="41e4ba27-3717-5e8f-ae85-6974adbefecc">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kd14d4aca36158fa705487c" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="Fd14d4aca36158fa705487c" Source="work\msi_payload\_internal\opf_source\opf\_model\triton_moe.py" Name="triton_moe.py" />
+                  </Component>
+                  <Component Id="C648081a3d679cc4e3b2f76" Guid="71cd40b6-c34e-5683-a409-e73a8eb693d1">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K648081a3d679cc4e3b2f76" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="F648081a3d679cc4e3b2f76" Source="work\msi_payload\_internal\opf_source\opf\_model\weights.py" Name="weights.py" />
+                  </Component>
+                </Directory>
+                <Directory Id="D6b8011a04b5f906e5acee9" Name="_train">
+                  <Component Id="C7cc2a9e070c28c7f181e4a" Guid="f723cde2-4c5b-55a6-a977-dd9d847db528">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K7cc2a9e070c28c7f181e4a" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="F7cc2a9e070c28c7f181e4a" Source="work\msi_payload\_internal\opf_source\opf\_train\__init__.py" Name="__init__.py" />
+                  </Component>
+                  <Component Id="Ce604265347929f4cdcc20b" Guid="1139f53f-c556-5856-b6d0-a3adce008777">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Ke604265347929f4cdcc20b" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="Fe604265347929f4cdcc20b" Source="work\msi_payload\_internal\opf_source\opf\_train\args.py" Name="args.py" />
+                  </Component>
+                  <Component Id="C2cdfba8c912afa6a42a6e7" Guid="f47cba45-81ef-5c98-915e-e8f1275cff74">
+                    <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K2cdfba8c912afa6a42a6e7" Type="integer" Value="1" KeyPath="yes" />
+                    <File Id="F2cdfba8c912afa6a42a6e7" Source="work\msi_payload\_internal\opf_source\opf\_train\runner.py" Name="runner.py" />
+                  </Component>
+                </Directory>
+              </Directory>
+              <Component Id="Ca7ea49a30abeb9b8e28c44" Guid="f7c20857-7cbd-5175-b6a1-14de1e8b4a9d">
+                <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Ka7ea49a30abeb9b8e28c44" Type="integer" Value="1" KeyPath="yes" />
+                <File Id="Fa7ea49a30abeb9b8e28c44" Source="work\msi_payload\_internal\opf_source\pyproject.toml" Name="pyproject.toml" />
+              </Component>
+              <Component Id="C65e160b83ee3dc5cc899d3" Guid="43d2d7cc-e899-54be-bbc2-3dae002eacdc">
+                <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K65e160b83ee3dc5cc899d3" Type="integer" Value="1" KeyPath="yes" />
+                <File Id="F65e160b83ee3dc5cc899d3" Source="work\msi_payload\_internal\opf_source\README.md" Name="README.md" />
+              </Component>
+            </Directory>
+            <Component Id="C4ff25ec40769423fadb4a5" Guid="b4a055e7-7e64-5b0a-8a79-d6c200c27f00">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K4ff25ec40769423fadb4a5" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="F4ff25ec40769423fadb4a5" Source="work\msi_payload\_internal\prepare_runtime.py" Name="prepare_runtime.py" />
+            </Component>
+            <Component Id="C7c3e62b069c26606425117" Guid="444b0347-2970-52cf-84de-f811e4a41928">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K7c3e62b069c26606425117" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="F7c3e62b069c26606425117" Source="work\msi_payload\_internal\process_group.py" Name="process_group.py" />
+            </Component>
+            <Component Id="C5b01f0fdbc3e727ca523ab" Guid="83ba2ba8-297a-580c-9ce3-8508b527c78f">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K5b01f0fdbc3e727ca523ab" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="F5b01f0fdbc3e727ca523ab" Source="work\msi_payload\_internal\setup.py" Name="setup.py" />
+            </Component>
+            <Component Id="C2c7419a8eb7551bbb3bc1c" Guid="0216e02d-30dd-5d3a-bef6-ab833fb6e22d">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K2c7419a8eb7551bbb3bc1c" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="F2c7419a8eb7551bbb3bc1c" Source="work\msi_payload\_internal\tidy_installation.py" Name="tidy_installation.py" />
+            </Component>
+            <Component Id="C95ae7e15ac7822ee3e6449" Guid="cbc8dee4-7e46-591e-91db-99dbbe8277da">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K95ae7e15ac7822ee3e6449" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="F95ae7e15ac7822ee3e6449" Source="work\msi_payload\_internal\verify_gpu.py" Name="verify_gpu.py" />
+            </Component>
+          </Directory>
+          <Directory Id="Da172cedcae47474b615c54" Name="app">
+            <Directory Id="Df95b5644a3e89076d3335b" Name="assets">
+              <Component Id="C3b45cf4f91bbd3974b76f9" Guid="365888c1-fdd2-5c5c-91a8-6b72f4ac02f8">
+                <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K3b45cf4f91bbd3974b76f9" Type="integer" Value="1" KeyPath="yes" />
+                <File Id="F3b45cf4f91bbd3974b76f9" Source="work\msi_payload\app\assets\logo.png" Name="logo.png" />
+              </Component>
+              <Component Id="C0e6f423e19cbda7d7d8a24" Guid="ead4d213-d5b6-53e2-8577-02f84303e1a2">
+                <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K0e6f423e19cbda7d7d8a24" Type="integer" Value="1" KeyPath="yes" />
+                <File Id="F0e6f423e19cbda7d7d8a24" Source="work\msi_payload\app\assets\pys-ivory.ico" Name="pys-ivory.ico" />
+              </Component>
+            </Directory>
+            <Component Id="C1743c4d895dbcfaf167cf7" Guid="522767ba-936a-5123-8344-98d778ef5e79">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K1743c4d895dbcfaf167cf7" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="F1743c4d895dbcfaf167cf7" Source="work\msi_payload\app\branding.py" Name="branding.py" />
+            </Component>
+            <Component Id="Cbff787a1da67a16f0441da" Guid="9347d071-441e-5a94-8add-73c84762df56">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kbff787a1da67a16f0441da" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="Fbff787a1da67a16f0441da" Source="work\msi_payload\app\hardware.py" Name="hardware.py" />
+            </Component>
+            <Component Id="Cd170fc8ffdb6f946b0b8d6" Guid="3cf8e84c-1eea-54f1-9081-e9ed2002b82e">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kd170fc8ffdb6f946b0b8d6" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="Fd170fc8ffdb6f946b0b8d6" Source="work\msi_payload\app\installed_features.py" Name="installed_features.py" />
+            </Component>
+            <Component Id="C247f28865c79baf330a9b8" Guid="69a325df-c064-57c6-848e-e04bcee6cac9">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K247f28865c79baf330a9b8" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="F247f28865c79baf330a9b8" Source="work\msi_payload\app\memory_policy.py" Name="memory_policy.py" />
+            </Component>
+            <Component Id="C4177cb15ee77c5aaff6098" Guid="0d23ab7f-b428-5372-b972-7c1c972371b1">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K4177cb15ee77c5aaff6098" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="F4177cb15ee77c5aaff6098" Source="work\msi_payload\app\privacy_core.py" Name="privacy_core.py" />
+            </Component>
+            <Component Id="C27392f38ae09596a5eceff" Guid="186290d7-ebfc-5451-9501-ab113dd5d3f4">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K27392f38ae09596a5eceff" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="F27392f38ae09596a5eceff" Source="work\msi_payload\app\privacy_settings.json" Name="privacy_settings.json" />
+            </Component>
+            <Component Id="C0aa977889de170a47537c8" Guid="7145a3f9-a4d8-5852-a897-a67f8bbc86da">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K0aa977889de170a47537c8" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="F0aa977889de170a47537c8" Source="work\msi_payload\app\privacy_studio.py" Name="privacy_studio.py" />
+            </Component>
+            <Component Id="Cd7c7a57528b3e2f21f1d74" Guid="7d66f0c6-ef86-57f4-b9dc-8390d2e887ed">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kd7c7a57528b3e2f21f1d74" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="Fd7c7a57528b3e2f21f1d74" Source="work\msi_payload\app\unlimited_adapter.py" Name="unlimited_adapter.py" />
+            </Component>
+            <Component Id="C87858f07dc82cb85d9488d" Guid="b6a480c9-2cb3-5ea9-8bda-1db259455ac7">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K87858f07dc82cb85d9488d" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="F87858f07dc82cb85d9488d" Source="work\msi_payload\app\unlimited_config.json" Name="unlimited_config.json" />
+            </Component>
+            <Component Id="C0b937b4bd915a8cae0b792" Guid="27026fa2-4d36-5fbd-8210-0a7a0fda269b">
+              <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="K0b937b4bd915a8cae0b792" Type="integer" Value="1" KeyPath="yes" />
+              <File Id="F0b937b4bd915a8cae0b792" Source="work\msi_payload\app\unlimited_worker.py" Name="unlimited_worker.py" />
+            </Component>
+          </Directory>
+          <Component Id="Cb01eeed0ec6fc4f4799e44" Guid="c44472ef-f760-5e41-bc39-3c2a5f78a7c0">
+            <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio\Files" Name="Kb01eeed0ec6fc4f4799e44" Type="integer" Value="1" KeyPath="yes" />
+            <File Id="Fb01eeed0ec6fc4f4799e44" Source="work\msi_payload\README.txt" Name="README.txt" />
+          </Component>
+        </Directory>
+      </Directory>
+    </StandardDirectory>
+    <Feature Id="Main" Title="PyS - Privacy Studio" Level="1">
+      <ComponentRef Id="C06a66e6b75f1c556a95fdd" />
+      <ComponentRef Id="Cf62c9f566a9589a365601d" />
+      <ComponentRef Id="C55f9c51ffc69570d17e09b" />
+      <ComponentRef Id="Cf5343cc2054a10e4f8d636" />
+      <ComponentRef Id="C0e0135d6d1b5f21a2d107e" />
+      <ComponentRef Id="Cbb169568c27327e4ad4257" />
+      <ComponentRef Id="Cc189fad6b8986a412b7e81" />
+      <ComponentRef Id="C03352bb8b2d0cfbdaadce0" />
+      <ComponentRef Id="Ccee7d06b30171114cf2649" />
+      <ComponentRef Id="Cf302c9b5d70cc5113062b5" />
+      <ComponentRef Id="C52238681e5af1a4965df91" />
+      <ComponentRef Id="C3b250be3ec77049a68f7f5" />
+      <ComponentRef Id="C81565c96c8a278c6864bd0" />
+      <ComponentRef Id="C8b43cde877cd0581c4513c" />
+      <ComponentRef Id="Cf905b78dd4756573fa131d" />
+      <ComponentRef Id="C85f2b214a1b51456bdee9d" />
+      <ComponentRef Id="C8f3a8eff757a6b4fc77b52" />
+      <ComponentRef Id="C5bcd6a6a4724efc09202b0" />
+      <ComponentRef Id="Cbf3b5c339ef3645009984e" />
+      <ComponentRef Id="Cf2ae504d868ec4f149a081" />
+      <ComponentRef Id="C37502d4aa8876a84094215" />
+      <ComponentRef Id="C6f3c4e673e37fe645191a5" />
+      <ComponentRef Id="Cd37b3f2a59e1323c98b5c4" />
+      <ComponentRef Id="Cab4f8efb3ef7bc51f61d51" />
+      <ComponentRef Id="C1b9bb0d7dc437a93138b38" />
+      <ComponentRef Id="Cd9b585e2662484ecc10c10" />
+      <ComponentRef Id="Cb5970dac74ebb57516baab" />
+      <ComponentRef Id="Cec177518417d668e049d47" />
+      <ComponentRef Id="Cfea153e63492f2585ab5e6" />
+      <ComponentRef Id="Caf31cc958ed5c742ab87b2" />
+      <ComponentRef Id="Cec28ed7b69a1884ffe0524" />
+      <ComponentRef Id="C1f01c2447c06bd95c8df5e" />
+      <ComponentRef Id="Ce614cfb96ed20195ce721d" />
+      <ComponentRef Id="Ce336921d32254b9d4d3e65" />
+      <ComponentRef Id="Cd67ee5e9714a63af2b66db" />
+      <ComponentRef Id="Cb736655f379cacc075c266" />
+      <ComponentRef Id="C85bd1a8a0ce4ec6004e1af" />
+      <ComponentRef Id="Cb18f5493b52b410d322e8d" />
+      <ComponentRef Id="C337bb15eb5a90ad67fc546" />
+      <ComponentRef Id="C6883aa86109c7c8377807b" />
+      <ComponentRef Id="Cd14d4aca36158fa705487c" />
+      <ComponentRef Id="C648081a3d679cc4e3b2f76" />
+      <ComponentRef Id="C7cc2a9e070c28c7f181e4a" />
+      <ComponentRef Id="Ce604265347929f4cdcc20b" />
+      <ComponentRef Id="C2cdfba8c912afa6a42a6e7" />
+      <ComponentRef Id="Ca7ea49a30abeb9b8e28c44" />
+      <ComponentRef Id="C65e160b83ee3dc5cc899d3" />
+      <ComponentRef Id="C4ff25ec40769423fadb4a5" />
+      <ComponentRef Id="C7c3e62b069c26606425117" />
+      <ComponentRef Id="C5b01f0fdbc3e727ca523ab" />
+      <ComponentRef Id="C2c7419a8eb7551bbb3bc1c" />
+      <ComponentRef Id="C95ae7e15ac7822ee3e6449" />
+      <ComponentRef Id="C3b45cf4f91bbd3974b76f9" />
+      <ComponentRef Id="C0e6f423e19cbda7d7d8a24" />
+      <ComponentRef Id="C1743c4d895dbcfaf167cf7" />
+      <ComponentRef Id="Cbff787a1da67a16f0441da" />
+      <ComponentRef Id="Cd170fc8ffdb6f946b0b8d6" />
+      <ComponentRef Id="C247f28865c79baf330a9b8" />
+      <ComponentRef Id="C4177cb15ee77c5aaff6098" />
+      <ComponentRef Id="C27392f38ae09596a5eceff" />
+      <ComponentRef Id="C0aa977889de170a47537c8" />
+      <ComponentRef Id="Cd7c7a57528b3e2f21f1d74" />
+      <ComponentRef Id="C87858f07dc82cb85d9488d" />
+      <ComponentRef Id="C0b937b4bd915a8cae0b792" />
+      <ComponentRef Id="Cb01eeed0ec6fc4f4799e44" />
+      <ComponentRef Id="LinksProgramMenuFolder" />
+      <ComponentRef Id="LinksDesktopFolder" />
+    </Feature>
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="NVStart" Name="PyS - Privacy Studio">
+        <Component Id="LinksProgramMenuFolder" Guid="*">
+          <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio" Name="ProgramMenuFolder" Type="integer" Value="1" KeyPath="yes" />
+          <Shortcut Id="LaunchProgramMenuFolder" Name="PyS - Privacy Studio" Target="[PYTHONDIR]pythonw.exe" Arguments="&quot;[INSTALLFOLDER]_internal\launch.pyw&quot;" WorkingDirectory="INSTALLFOLDER" Icon="AppIcon" />
+          <Shortcut Id="Config" Name="Configura PyS - Privacy Studio" Target="[PYTHONDIR]pythonw.exe" Arguments="&quot;[INSTALLFOLDER]_internal\configure.pyw&quot;" WorkingDirectory="INSTALLFOLDER" Icon="AppIcon" />
+          <RemoveFolder Id="RemoveMenu" On="uninstall" />
+        </Component>
+      </Directory>
+    </StandardDirectory>
+    <StandardDirectory Id="DesktopFolder">
+      <Component Id="LinksDesktopFolder" Guid="*">
+        <RegistryValue Root="HKCU" Key="Software\NeuroVaultXR\PrivacyStudio" Name="DesktopFolder" Type="integer" Value="1" KeyPath="yes" />
+        <Shortcut Id="LaunchDesktopFolder" Name="PyS - Privacy Studio" Target="[PYTHONDIR]pythonw.exe" Arguments="&quot;[INSTALLFOLDER]_internal\launch.pyw&quot;" WorkingDirectory="INSTALLFOLDER" Icon="AppIcon" />
+      </Component>
+    </StandardDirectory>
+  </Package>
+</Wix>

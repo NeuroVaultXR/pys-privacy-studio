@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+tools/
+outputs/
+*.wixpdb
+*.msi
+*.log
+**/models/
+**/.ocr/
+**/.venv/
