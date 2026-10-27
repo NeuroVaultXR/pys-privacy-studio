@@ -1,50 +1,59 @@
 # PyS – Privacy Studio
-**Salvatore Urbano / NeuroVaultXR** · Windows x64 · Version 1.5.1
+**NeuroVaultXR · Windows**
 
 [Italiano](#italiano) · [English](#english)
 
 ## Italiano
-Applicazione desktop per estrarre testo tramite OCR e assistere l'oscuramento dei dati personali. Integra OpenAI Privacy Filter, RapidOCR e, nelle configurazioni complete, Baidu Unlimited-OCR. Ideazione, personalizzazione e integrazione PyS di Salvatore Urbano, con sviluppo assistito dall'AI.
+PyS è un’applicazione desktop per estrarre testo dai documenti e assistere l’oscuramento dei dati personali. Integra OpenAI Privacy Filter, RapidOCR e Baidu Unlimited-OCR in un’interfaccia con anteprima e revisione manuale.
 
-### Funzioni
-- Caricamento drag-and-drop di PDF, immagini, TXT e DOCX.
-- Oscuramento automatico, termini personalizzati e gestione delle date.
-- Confronto originale/risultato e rettangoli manuali di oscuramento.
-- Modalità Solo OCR; esportazione PDF, TXT e DOCX secondo il contenuto e la modalità.
-- Configurazione guidata Base, Completa CPU o Completa NVIDIA compatibile.
+### Cosa puoi fare
+- Caricare PDF, immagini, TXT e DOCX tramite drag-and-drop.
+- Oscurare dati personali e aggiungere termini da cercare.
+- Confrontare originale e risultato, correggendo manualmente gli oscuramenti.
+- Usare la modalità Solo OCR ed esportare i risultati.
 
 ### Installazione
-Installa Python **3.13 a 64 bit** da https://www.python.org/downloads/windows/ con pip e Tcl/Tk, poi [il pacchetto PyS-PrivacyStudio.msi](https://github.com/NeuroVaultXR/pys-privacy-studio/raw/refs/heads/main/downloads/PyS-PrivacyStudio.msi). Avvia PyS dal menu Start, scegli la configurazione e premi **Scarica e configura**. Il primo download richiede Internet; i documenti vengono elaborati localmente.
-Le istruzioni complete sono in [ISTRUZIONI.txt](ISTRUZIONI.txt). Il repository contiene i sorgenti; non contiene pesi dei modelli o ambienti Python.
+1. Installa [Python 3.13 a 64 bit](https://www.python.org/downloads/windows/) con pip e Tcl/Tk.
+2. Scarica e avvia [l’installer PyS](https://github.com/NeuroVaultXR/pys-privacy-studio/raw/refs/heads/main/downloads/PyS-PrivacyStudio.msi).
+3. Apri PyS dal menu Start e completa la configurazione guidata.
 
-### Requisiti indicativi della configurazione
-| Modalità | Requisiti |
-|---|---|
-| Base | Privacy Filter e RapidOCR su CPU; circa 10 GiB di disco libero durante la configurazione |
-| Completa CPU | Almeno 17 GiB di RAM libera; circa 22 GiB di disco |
-| Completa NVIDIA | GPU BF16, compute capability >= 8.0 e almeno 8 GiB di VRAM libera; circa 35 GiB di disco |
-GTX 1650 non compatibile con Unlimited-OCR GPU. Privacy Filter e RapidOCR restano su CPU. I modelli richiedono circa 2,8 GB (Privacy Filter) e ulteriori 6,7 GB (Unlimited-OCR), oltre alle librerie.
+La prima configurazione richiede Internet per scaricare i componenti necessari. I documenti vengono elaborati localmente.
 
-### Stato e limiti
-Prima versione pubblica, in evoluzione. La modalità NVIDIA non è ancora stata verificata su GPU reale. Non viene dichiarato un nuovo collaudo funzionale completo dell'ultimo installer.
-OCR e modelli possono omettere dati o produrre errori: è necessaria la revisione di tutte le pagine prima di condividere il risultato. Nessuna anonimizzazione infallibile o certificazione è dichiarata.
-Il PDF oscurato è composto da pagine-immagine, senza testo originale selezionabile. Il budget RAM è monitorato e non è un limite rigido di Windows.
+Puoi scegliere la configurazione Base o una configurazione completa con Unlimited-OCR. Le istruzioni operative sono in [ISTRUZIONI.txt](ISTRUZIONI.txt).
 
-### Ricompilazione MSI
-Da Windows, con runtime .NET compatibile (6 o successivo), esegui `./Build-MSI.ps1` dalla radice. Lo script scarica WiX 4.0.6 e produce `outputs/PyS-PrivacyStudio.msi`. La struttura `work/msi_payload` deve essere conservata. Non sono richiesti download di modelli per compilare il pacchetto.
-La riproducibilità binaria esatta non è garantita.
+### Prima di condividere un risultato
+Controlla sempre ogni pagina: OCR e oscuramento automatico possono commettere errori o omettere dati. Puoi correggere il risultato nell’anteprima. I PDF oscurati vengono esportati come pagine-immagine, senza testo originale selezionabile.
 
-SHA-256 dell’installer: [PyS-PrivacyStudio.sha256.txt](downloads/PyS-PrivacyStudio.sha256.txt).
+La modalità NVIDIA è sperimentale e non è ancora stata verificata su hardware GPU reale per questa integrazione.
+
+### Sorgenti
+Il repository contiene l’applicazione e i file per costruire l’installer. Per ricompilare l’MSI su Windows, usa lo script `Build-MSI.ps1` con un runtime .NET compatibile, mantenendo la struttura delle cartelle. I modelli vengono scaricati durante la configurazione e non sono inclusi nel repository.
+
+[Checksum SHA-256 dell’installer](downloads/PyS-PrivacyStudio.sha256.txt)
 
 ## English
-A local Windows application combining document OCR, assisted personal-data redaction, previews and manual review. PyS integrates existing engines; it does not claim authorship of those models.
-Install Python 3.13 x64 with pip and Tcl/Tk, [download the MSI](https://github.com/NeuroVaultXR/pys-privacy-studio/raw/refs/heads/main/downloads/PyS-PrivacyStudio.msi) and install it, then use the visible configuration wizard. Initial model/dependency downloads require Internet. Documents are processed locally.
-The source tree includes the application and MSI build inputs, not model weights or Python environments. Base runs on CPU; full CPU needs at least 17 GiB free RAM; NVIDIA requires a compatible BF16 GPU with at least 8 GiB free VRAM and has not yet been tested on actual GPU hardware. Human review remains necessary. Redacted PDFs use rasterized pages without selectable original text.
+PyS is a Windows desktop application for document OCR and assisted personal-data redaction. It brings OpenAI Privacy Filter, RapidOCR and Baidu Unlimited-OCR together with previews and manual review.
+
+### Features
+- Drag-and-drop PDF, image, TXT and DOCX files.
+- Redact personal data and add custom search terms.
+- Compare the original and the result, then correct redactions manually.
+- Use OCR-only mode and export the results.
+
+### Installation
+Install [Python 3.13 x64](https://www.python.org/downloads/windows/) with pip and Tcl/Tk, then [download and run the PyS installer](https://github.com/NeuroVaultXR/pys-privacy-studio/raw/refs/heads/main/downloads/PyS-PrivacyStudio.msi). Open PyS from the Start menu and complete the setup wizard. Initial setup requires Internet; documents are processed locally.
+
+Choose Base or a full configuration with Unlimited-OCR. Review every page before sharing a result: automatic OCR and redaction can miss information or make mistakes. Exported redacted PDFs use image-based pages without selectable original text. NVIDIA mode is experimental and has not yet been tested on actual GPU hardware for this integration.
+
+The repository includes application and MSI build sources; model files are downloaded during setup.
 
 ## Attribution and rights
+PyS design, customisation and integration: Salvatore Urbano, with AI-assisted development.
+
 - [OpenAI Privacy Filter](https://github.com/openai/privacy-filter): OpenAI, Apache 2.0; license included under `work/msi_payload/_internal/licenses/`.
 - [Unlimited-OCR](https://github.com/baidu/Unlimited-OCR): Baidu, MIT; license included in the same directory.
 - RapidOCR, PyMuPDF/MuPDF and other dependencies retain their own licenses. PyMuPDF/MuPDF is offered under AGPL or a commercial license.
-PyS branding and customization: Salvatore Urbano. This attribution does not transfer authorship of third-party engines. No blanket relicensing of this combined distribution is asserted here. See included notices and upstream licenses before reuse or redistribution.
 
-Contact: salvatore.urbano99@gmail.com · https://neurovaultxr.com
+The original authors retain authorship of the underlying engines. No blanket relicensing of this combined distribution is asserted here. See the included notices and upstream licenses before reuse or redistribution.
+
+Contact: neurovaultxr@gmail.com · https://neurovaultxr.com
